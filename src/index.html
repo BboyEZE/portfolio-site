@@ -1,29 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Site</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ian Andler Pascual</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-    <header>
-        <h1>Ian Andler Pascual</h1>
-    </header>
-    <main>
-        <div id="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+<body class="home">
+  <header class="site-header minimal">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img src="img/headshot.jpg" alt="Ian Andler Pascual headshot" class="avatar" />
+        <span class="name">Ian Andler Pascual</span>
+      </a>
+      <!-- No nav here on the landing by design -->
+    </div>
+  </header>
+
+  <main class="container">
+    <div>
+        <h1>Who is Ian?</h1>
+        <p class="type-line">
+          <span id="typer"></span><span class="cursor" aria-hidden="true">|</span>
+        </p>
+      </div>
+    <section class="hero hero--landing">
+      
+      <div class="hero-media">
+        <!-- Use a larger image or a clean portrait here -->
+        <img src="img/landing-photo.jpg" alt="The Man the Myth the Legend" class="hero-photo" />
+      </div>
+
+      <div class="hero-copy">
+
+        <div class="cta-cards">
+          <a class="cta" href="projects.html" aria-label="View projects">
+            <h3>Projects →</h3>
+            <p>Breakdance app, multiplayer blackjack, data work, and more.</p>
+          </a>
+          <a class="cta" href="aboutme.html" aria-label="Learn about me">
+            <h3>About Me →</h3>
+            <p>CS + Japanese, teamwork, problem solving, and growth.</p>
+          </a>
+          <a class="cta" href="contact.html" aria-label="Contact Ian">
+            <h3>Contact →</h3>
+            <p>Roles, collabs, or just say hi.</p>
+          </a>
         </div>
-        <!-- Content goes here -->
-    </main>
-    <footer>
-        <p>&copy;Ian Andler Pascual</p>
-    </footer>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> Ian Andler Pascual</small>
+    </div>
+  </footer>
+
+  <script src="scripts/typewriter.js" defer></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
