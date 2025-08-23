@@ -1,37 +1,124 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Ian Andler Pascual</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="img/headshot.jpg" alt="Ian headshot" class="avatar" />
+        <img src="img/headshop.jpeg" alt="Ian Andler Pascual headshot" class="avatar" />
         <span class="name">Ian Andler Pascual</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="aboutme.html" class="active">About</a>
-        <a href="projects.html">Projects</a>
+        <a href="aboutme.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container section">
-    <h1>About Me</h1>
-    <p>Short intro here…</p>
-  </main>
+    <main class="container section">
+      <h1>Projects</h1>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <small>© <span id="year"></span> Ian Andler Pascual · <a href="index.html">Home</a></small>
-    </div>
-  </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
+      <div class="project-rail">
+        <!-- Multiplayer Blackjack -->
+        <article class="project-card" id="proj-blackjack">
+          <div class="project-body">
+            <h2 class="project-title">Multiplayer Blackjack</h2>
+            <p class="project-tags">Node.js · WebSockets · Game Logic · DB (High Scores)</p>
+            <p class="project-summary">Head-to-head blackjack built nearly from scratch: real-time play for two users,
+              custom shoe/shuffle and payout rules, and persistent high scores.</p>
+            <div class="project-actions">
+              <button class="btn" data-toggle="#details-blackjack">Read more</button>
+              <a class="btn outline" href="#" aria-disabled="true">View code (soon)</a>
+            </div>
+            <div class="project-details" id="details-blackjack">
+              <p>I implemented the game engine (deck, dealer AI, hand evaluation), real-time messaging using WebSockets,
+                and a simple auth/high-score store. The focus was correctness of blackjack rules (splits, double-downs,
+                soft vs hard totals) and deterministic tests around edge cases.</p>
+            </div>
+          </div>
+          <figure class="project-media">
+            <img src="img/projects/blackjack.jpg" alt="Blackjack UI mock with cards and table"
+              onerror="this.src='img/projects/placeholder.jpg'" />
+          </figure>
+        </article>
+
+
+        <!-- Breakdancing Event Webapp -->
+        <article class="project-card" id="proj-bboy">
+          <div class="project-body">
+            <h2 class="project-title">Breakdancing Event Webapp</h2>
+            <p class="project-tags">Python · SQL · Bracket Gen · Round Robin · Scoring</p>
+            <p class="project-summary">Backend-first tool for battle hosts: auto-generate brackets, group round-robins,
+              process judge scores, and advance winners—built to support real events.</p>
+            <div class="project-actions">
+              <button class="btn" data-toggle="#details-bboy">Read more</button>
+              <a class="btn outline" href="#" aria-disabled="true">Live demo (after event)</a>
+            </div>
+            <div class="project-details" id="details-bboy">
+              <p>I designed the relational schema (crews, battles, rounds, judge scores) and implemented algorithms to
+                seed top crews, balance groups, resolve ties, and compute advancement. Queries are optimized for simple
+                organizer dashboards.</p>
+            </div>
+          </div>
+          <figure class="project-media">
+            <img src="img/projects/bboy.jpg" alt="Bracket and scoreboard preview for a breaking battle"
+              onerror="this.src='img/projects/placeholder.jpg'" />
+          </figure>
+        </article>
+
+
+        <!-- Farming Simulator -->
+        <article class="project-card" id="proj-farm">
+          <div class="project-body">
+            <h2 class="project-title">Farming Simulator</h2>
+            <p class="project-tags">OOP · Systems Design · Balancing</p>
+            <p class="project-summary">A sandbox to practice systems design: crop growth cycles, resources, and a simple
+              economy tied to player actions and timing.</p>
+            <div class="project-actions">
+              <button class="btn" data-toggle="#details-farm">Read more</button>
+              <a class="btn outline" href="#" aria-disabled="true">Screenshots (soon)</a>
+            </div>
+            <div class="project-details" id="details-farm">
+              <p>Built modular components for crops, inventory, and time-based events. Focused on object modeling and
+                tuning growth rates vs yields so the loop stays engaging without grind.</p>
+            </div>
+          </div>
+          <figure class="project-media">
+            <img src="img/projects/farm.jpg" alt="Top-down farm scene with plots and barn"
+              onerror="this.src='img/projects/placeholder.jpg'" />
+          </figure>
+        </article>
+      </div>
+    </main>
+
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <small>© <span id="year"></span> Ian Andler Pascual · <a href="index.html">Home</a></small>
+      </div>
+    </footer>
+
+
+    <script>
+      // Year stamp
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-toggle]');
+        if (!btn) return;
+        const sel = btn.getAttribute('data-toggle');
+        const panel = document.querySelector(sel);
+        if (panel) { panel.classList.toggle('active'); }
+      });
+    </script>
+  </body>
+
 </html>

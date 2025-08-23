@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Ian Andler Pascual</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="img/headshot.jpg" alt="Ian headshot" class="avatar" />
+        <img src="img/headshop.jpeg" alt="Ian Andler Pascual headshot" class="avatar" />
         <span class="name">Ian Andler Pascual</span>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -21,9 +23,100 @@
     </div>
   </header>
 
-  <main class="container section">
+  <main class="container about-section">
     <h1>About Me</h1>
-    <p>Short intro here…</p>
+    <p class="about-muted">A few things I’m into outside of code.</p>
+
+    <!-- Quick Facts -->
+    <section id="quick-facts" aria-labelledby="facts-title">
+      <h2 id="facts-title">Quick Facts</h2>
+      <div class="about-facts">
+        <div class="about-fact"><strong>Hometown:</strong>Lombard, Illinois</div>
+        <div class="about-fact"><strong>Currently learning:</strong> Japanese (advanced grammar + daily reading)</div>
+        <div class="about-fact"><strong>Movement:</strong> Rock climbing & breakdancing, Bball, and more</div>
+        <div class="about-fact"><strong>Games:</strong> Deadlock</div>
+        <div class="about-fact"><strong>Other joys:</strong> Travel, good food, and exploring new places</div>
+      </div>
+    </section>
+
+    <!-- Hobbies -->
+    <section id="hobbies" aria-labelledby="hobbies-title">
+      <h2 id="hobbies-title">Hobbies</h2>
+      <p class="about-muted">Swap images/text anytime—each card is standalone.</p>
+
+      <div class="about-grid">
+        <!-- Japanese learning -->
+        <article class="about-card">
+          <figure>
+            <img src="img/hobbies/japanese.jpg" alt="Notebook with Japanese characters"
+              onerror="this.src='img/projects/placeholder.jpg'">
+          </figure>
+          <div class="body">
+            <h3>Japanese Learning</h3>
+            <p>Daily reading and advanced grammar practice; I enjoy writing short essays and picking apart nuances.</p>
+          </div>
+        </article>
+
+        <!-- Rock climbing -->
+        <article class="about-card">
+          <figure>
+            <img src="img/hobbies/climbing.jpg" alt="Bouldering wall" onerror="this.src='img/projects/placeholder.jpg'">
+          </figure>
+          <div class="body">
+            <h3>Rock Climbing</h3>
+            <p>Mostly bouldering—problem solving on the wall helps me stay focused and calm.</p>
+          </div>
+        </article>
+
+        <!-- Breakdancing -->
+        <article class="about-card">
+          <figure>
+            <img src="img/hobbies/breakdance.jpg" alt="Breakdancing freeze"
+              onerror="this.src='img/projects/placeholder.jpg'">
+          </figure>
+          <div class="body">
+            <h3>Breakdancing</h3>
+            <p>Foundations, cyphers, and occasional battles; I love the blend of discipline and creativity.</p>
+          </div>
+        </article>
+
+        <!-- Basketball -->
+        <article class="about-card">
+          <figure>
+            <img src="img/hobbies/basketball.jpg" alt="Outdoor basketball hoop"
+              onerror="this.src='img/projects/placeholder.jpg'">
+          </figure>
+          <div class="body">
+            <h3>Basketball</h3>
+            <p>Shootarounds are my reset—great for clearing my head and thinking through stuff.</p>
+          </div>
+        </article>
+
+        <!-- Video games -->
+        <article class="about-card">
+          <figure>
+            <img src="img/hobbies/games.jpg" alt="Game controller on a desk"
+              onerror="this.src='img/projects/placeholder.jpg'">
+          </figure>
+          <div class="body">
+            <h3>Video Games</h3>
+            <p>JRPGs and sims; I like analyzing systems and balance for fun.</p>
+          </div>
+        </article>
+
+        <!-- Travel / Food (optional extra) -->
+        <article class="about-card">
+          <figure>
+            <img src="img/hobbies/travel.jpg" alt="City street with food stalls"
+              onerror="this.src='img/projects/placeholder.jpg'">
+          </figure>
+          <div class="body">
+            <h3>Travel & Food</h3>
+            <p>Exploring neighborhoods, cafés, and local spots—always down for a good bowl of ramen.</p>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -32,6 +125,9 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
+
 </html>
