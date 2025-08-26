@@ -1,4 +1,6 @@
-🌐 Ian Andler Pascual — Portfolio Website
+🌐 Ian Andler Pascual — Portfolio Website 
+
+link: https://bboyeze.github.io/portfolio-site/
 
 A personal portfolio website to showcase my background, projects, and contact information. Built with HTML, CSS, and JavaScript, following a clean, modular structure (MVC-inspired) with reusable components and responsive design.
 
