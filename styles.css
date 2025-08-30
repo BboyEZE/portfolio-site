@@ -324,8 +324,12 @@ a.btn {
   padding: .55rem .9rem;
   border-radius: 10px;
   font-weight: 600;
-  background: #6f4cff;            /* solid purple */
+  background: #3b1074;            /* solid purple */
   color: #fff;
+}
+
+.btn.open{
+  background: #571c69;            /* darker purple when open */
 }
 
 .btn:hover { filter: brightness(.95); }

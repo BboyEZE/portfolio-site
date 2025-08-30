@@ -6,6 +6,13 @@ function handleToggleClicks(e) {
   const sel = btn.getAttribute('data-toggle');
   const panel = document.querySelector(sel);
   if (panel) panel.classList.toggle('active');
+
+  btn.classList.toggle('open');
+  if(btn.classList.contains('open')) {
+    btn.textContent = 'Close';
+  } else {
+    btn.textContent = 'Read more';
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
