@@ -24,31 +24,29 @@
   </header>
 
   <main class="container about-section">
-    <h1>About Me</h1>
-    <p class="about-muted">A few things I’m into outside of code.</p>
+    <h1 data-reveal>About Me</h1>
+    <p class="about-muted">A few things I'm into outside of code.</p>
 
     <!-- Quick Facts -->
     <section id="quick-facts" aria-labelledby="facts-title">
-      <h2 id="facts-title">Quick Facts</h2>
+      <h2 id="facts-title" data-reveal>Quick Facts</h2>
       <div class="about-facts">
-        <div class="about-fact"><strong>Hometown:</strong> Lombard, Illinois</div>
-        <div class="about-fact"><strong>Movement:</strong> Rock climbing & breakdancing, Bball, and more</div>
-        <div class="about-fact"><strong>Games:</strong> Deadlock</div>
-        <div class="about-fact"><strong>Other joys:</strong> Travel, good food, and exploring new places</div>
+        <div class="about-fact" data-reveal><strong>Hometown:</strong> Lombard, Illinois</div>
+        <div class="about-fact" data-reveal><strong>Movement:</strong> Rock climbing & breakdancing, Bball, and more</div>
+        <div class="about-fact" data-reveal><strong>Games:</strong> Deadlock</div>
+        <div class="about-fact" data-reveal><strong>Other joys:</strong> Travel, good food, and exploring new places</div>
       </div>
     </section>
 
     <!-- Hobbies -->
     <section id="hobbies" aria-labelledby="hobbies-title">
-      <h2 id="hobbies-title">Hobbies</h2>
+      <h2 id="hobbies-title" data-reveal>Hobbies</h2>
       <p class="about-muted">Things I enjoy outside of school, work, and coding projects</p>
 
       <div class="about-grid">
-        <!-- Japanese learning -->
-        <article class="about-card">
+        <article class="about-card" data-reveal>
           <figure>
-            <img src="img/aboutme/calligraphy.jpg" alt="Notebook with Japanese characters"
-              onerror="this.src='img/projects/placeholder.jpg'">
+            <img src="img/aboutme/calligraphy.jpg" alt="Notebook with Japanese characters">
           </figure>
           <div class="body">
             <h3>Japanese Learning</h3>
@@ -56,10 +54,9 @@
           </div>
         </article>
 
-        <!-- Rock climbing -->
-        <article class="about-card">
+        <article class="about-card" data-reveal>
           <figure>
-            <img src="img/hobbies/climbing.jpg" alt="Bouldering wall" onerror="this.src='img/aboutme/climbing_pic.jpg'">
+            <img src="img/hobbies/climbing.jpg" alt="Bouldering wall">
           </figure>
           <div class="body">
             <h3>Rock Climbing</h3>
@@ -67,11 +64,9 @@
           </div>
         </article>
 
-        <!-- Breakdancing -->
-        <article class="about-card">
+        <article class="about-card" data-reveal>
           <figure>
-            <img src="img/aboutme/windmills.jpg" alt="Breakdancing freeze"
-              onerror="this.src='img/projects/placeholder.jpg'">
+            <img src="img/aboutme/windmills.jpg" alt="Breakdancing freeze">
           </figure>
           <div class="body">
             <h3>Breakdancing</h3>
@@ -79,11 +74,9 @@
           </div>
         </article>
 
-        <!-- Basketball -->
-        <article class="about-card">
+        <article class="about-card" data-reveal>
           <figure>
-            <img src="img/aboutme/hoops.png" alt="Outdoor basketball hoop"
-              onerror="this.src='img/projects/placeholder.jpg'">
+            <img src="img/aboutme/hoops.png" alt="Outdoor basketball hoop">
           </figure>
           <div class="body">
             <h3>Basketball</h3>
@@ -91,11 +84,9 @@
           </div>
         </article>
 
-        <!-- Video games -->
-        <article class="about-card">
+        <article class="about-card" data-reveal>
           <figure>
-            <img src="img/aboutme/game_collage.jpg" alt="Game controller on a desk"
-              onerror="this.src='img/projects/placeholder.jpg'">
+            <img src="img/aboutme/game_collage.jpg" alt="Game controller on a desk">
           </figure>
           <div class="body">
             <h3>Video Games</h3>
@@ -103,11 +94,9 @@
           </div>
         </article>
 
-        <!-- Travel/Hiking -->
-        <article class="about-card">
+        <article class="about-card" data-reveal>
           <figure>
-            <img src="img/aboutme/mountain_view.JPG" alt="City street with food stalls"
-              onerror="this.src='img/projects/placeholder.jpg'">
+            <img src="img/aboutme/mountain_view.JPG" alt="City street with food stalls">
           </figure>
           <div class="body">
             <h3>Travel</h3>
@@ -124,6 +113,7 @@
     </div>
   </footer>
 
+  <script src="scripts/site.js" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

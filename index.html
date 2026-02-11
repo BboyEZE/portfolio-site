@@ -9,31 +9,30 @@
 <body class="home">
 
   <main class="container">
-    <div>
+    <div data-reveal>
         <h1>Who is Ian?</h1>
         <p class="type-line">
           <span id="typer"></span><span class="cursor" aria-hidden="true">|</span>
         </p>
       </div>
     <section class="hero hero--landing">
-      
-      <div class="hero-media">
-        <!-- Use a larger image or a clean portrait here -->
+
+      <div class="hero-media" data-reveal>
         <img src="img/nicest_photo_of_recent.JPG" alt="The Man the Myth the Legend" class="hero-photo" />
       </div>
 
       <div class="hero-copy">
 
         <div class="cta-cards">
-          <a class="cta" href="projects.html" aria-label="View projects">
+          <a class="cta" href="projects.html" aria-label="View projects" data-reveal>
             <h3>Projects →</h3>
             <p>Breakdance app, multiplayer blackjack, data work, and more.</p>
           </a>
-          <a class="cta" href="aboutme.html" aria-label="Learn about me">
+          <a class="cta" href="aboutme.html" aria-label="Learn about me" data-reveal>
             <h3>About Me →</h3>
             <p>CS + Japanese, teamwork, problem solving, and growth.</p>
           </a>
-          <a class="cta" href="contact.html" aria-label="Contact Ian">
+          <a class="cta" href="contact.html" aria-label="Contact Ian" data-reveal>
             <h3>Contact →</h3>
             <p>Roles, collabs, or just say hi.</p>
           </a>
@@ -49,6 +48,7 @@
   </footer>
 
   <script src="scripts/typewriter.js" defer></script>
+  <script src="scripts/site.js" defer></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

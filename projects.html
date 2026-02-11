@@ -24,12 +24,10 @@
   </header>
 
     <main class="container section">
-      <h1>Projects</h1>
-
+      <h1 data-reveal>Projects</h1>
 
       <div class="project-rail">
-        <!-- Multiplayer Blackjack -->
-        <article class="project-card" id="proj-blackjack">
+        <article class="project-card" id="proj-blackjack" data-reveal>
           <div class="project-body">
             <h2 class="project-title">Multiplayer Blackjack</h2>
             <p class="project-tags">Node.js · WebSockets · Game Logic · DB (High Scores)</p>
@@ -43,17 +41,14 @@
               <button class="btn" data-toggle="#details-blackjack">Read more</button>
               <a class="btn outline" href="https://github.com/BboyEZE/multiplayer-blackjack-game">Github</a>
             </div>
-            
+
           </div>
           <figure class="project-media">
-            <img src="img/blackjack_game_ss.png" alt="Blackjack UI mock with cards and table"
-              onerror="this.src='img/projects/placeholder.jpg'" />
+            <img src="img/blackjack_game_ss.png" alt="Blackjack UI mock with cards and table" />
           </figure>
         </article>
 
-
-        <!-- Breakdancing Event Webapp -->
-        <article class="project-card" id="proj-bboy">
+        <article class="project-card" id="proj-bboy" data-reveal>
           <div class="project-body">
             <h2 class="project-title">Breakdancing Event Webapp</h2>
             <p class="project-tags">Python · SQL · Bracket Gen · Round Robin · Scoring</p>
@@ -70,14 +65,11 @@
 
           </div>
           <figure class="project-media">
-            <img src="img/nike_freeze.png" alt="Bracket and scoreboard preview for a breaking battle"
-              onerror="this.src='img/projects/placeholder.jpg'" />
+            <img src="img/nike_freeze.png" alt="Bracket and scoreboard preview for a breaking battle" />
           </figure>
         </article>
 
-
-        <!-- Farming Simulator -->
-        <article class="project-card" id="proj-farm">
+        <article class="project-card" id="proj-farm" data-reveal>
           <div class="project-body">
             <h2 class="project-title">Farming Simulator</h2>
             <p class="project-tags">OOP · Systems Design · Balancing</p>
@@ -87,18 +79,16 @@
             </div>
             <div class="project-actions">
               <button class="btn" data-toggle="#details-farm">Read more</button>
-              <a class="btn outline" href="https://github.com/shane1595042264/eco-sprout">Github</Link></a>
+              <a class="btn outline" href="https://github.com/shane1595042264/eco-sprout">Github</a>
             </div>
-            
+
           </div>
           <figure class="project-media">
-            <img src="img/EcoSprout.png" alt="Top-down farm scene with plots and barn"
-              onerror="this.src='img/projects/placeholder.jpg'" />
+            <img src="img/EcoSprout.png" alt="Top-down farm scene with plots and barn" />
           </figure>
         </article>
       </div>
     </main>
-
 
     <footer class="site-footer">
       <div class="container footer-inner">
@@ -106,9 +96,7 @@
       </div>
     </footer>
 
-
     <script>
-      // Year stamp
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
     <script src="scripts/site.js" defer></script>
