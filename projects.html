@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About | Ian Andler Pascual</title>
+  <title>Projects | Ian Andler Pascual</title>
+  <meta name="description" content="Professional and personal projects by Ian Andler Pascual." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -16,102 +17,305 @@
         <span class="name">Ian Andler Pascual</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="aboutme.html">About</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="aboutme.html" data-i18n="nav.about">About</a>
+        <a href="projects.html" class="active" data-i18n="nav.projects">Projects</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <button type="button" class="lang-toggle" aria-label="日本語に切り替え">日本語</button>
       </nav>
     </div>
   </header>
 
-    <main class="container section">
-      <h1>Projects</h1>
+  <main class="container section">
+    <div class="section-head reveal">
+      <h1 data-i18n="projects.h1">Projects</h1>
+      <p class="lead" data-i18n="projects.lead">Professional work and personal builds. Switch between the two below.</p>
+    </div>
 
+    <!-- Tabs -->
+    <div class="tabs reveal" role="tablist" aria-label="Project category">
+      <button class="tab" id="tab-professional" role="tab" aria-selected="true"
+        aria-controls="panel-professional" tabindex="0" data-i18n-html="tab.professional">
+        Professional <span class="tab-count">4</span>
+      </button>
+      <button class="tab" id="tab-personal" role="tab" aria-selected="false"
+        aria-controls="panel-personal" tabindex="-1" data-i18n-html="tab.personal">
+        Personal <span class="tab-count">3</span>
+      </button>
+    </div>
+
+    <!-- ===================== PROFESSIONAL ===================== -->
+    <section id="panel-professional" class="tabpanel is-active" role="tabpanel"
+      aria-labelledby="tab-professional">
+      <p class="panel-note" data-i18n="panel.pro.note">Work I've shipped through Uptimize. I've kept client names and the sensitive
+        details out, so these focus on what I actually built and the problems they solved.</p>
+
+      <div class="project-rail">
+        <!-- CPQ / Configurator -->
+        <article class="project-card reveal">
+          <div class="project-media project-media--icon"><span class="glyph" aria-hidden="true">🧩</span></div>
+          <div class="project-body">
+            <span class="project-badge" data-i18n="badge.professional">Professional</span>
+            <h2 class="project-title" data-i18n="proj.cpq.t">Industrial Equipment Configurator (CPQ)</h2>
+            <ul class="project-tags">
+              <li>React</li><li>Vite</li><li>Three.js</li><li>jsPDF</li><li>Docker</li><li>Nginx</li>
+            </ul>
+            <p class="project-summary" data-i18n="proj.cpq.s">A web-based Configure-Price-Quote tool for configurable industrial
+              hardware. An engineer picks the product type, enters electrical specs and dimensions, and gets
+              a live bill of materials, a full cost rollup, a 3D preview, and a downloadable quote, all in
+              the browser with no backend.</p>
+            <div class="project-details" id="details-cpq"><div data-i18n-html="details.cpq">
+              <p>The hard part was that all the pricing and engineering logic lived in giant, battle-tested
+                spreadsheets. I ported those formulas straight into a JavaScript calculation engine so the
+                numbers stay precise and round exactly the way the engineers expect, then made the whole thing
+                recalculate live as inputs change.</p>
+              <p class="detail-sub">What it does</p>
+              <ul>
+                <li>Real-time BOM and cost engine with multi-currency support and configurable lot sizes up to
+                  thousands of units.</li>
+                <li>Interactive 3D product visualization (Three.js) sitting right next to the configuration panel.</li>
+                <li>A manufacturing process routing view that lays out the real sequence of work-center
+                  operations with time and cost estimates.</li>
+                <li>Client-side PDF generation (jsPDF) that produces a complete spec sheet with drawings, BOM
+                  tables, and cost breakdowns, no server round-trip.</li>
+                <li>Shipped as a static bundle behind Nginx in a Docker container, with cloud deployment scripts.</li>
+              </ul>
+              <p class="detail-sub">Stack</p>
+              <p class="detail-stack">React + Vite single-page app, Three.js for 3D, jsPDF for documents,
+                Docker + Nginx for delivery.</p>
+            </div></div>
+            <div class="project-actions">
+              <button class="btn outline" data-toggle="#details-cpq" aria-expanded="false" data-i18n="btn.readmore">Read more</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Invoice automation -->
+        <article class="project-card reveal" data-delay="1">
+          <div class="project-media project-media--icon"><span class="glyph" aria-hidden="true">🧾</span></div>
+          <div class="project-body">
+            <span class="project-badge" data-i18n="badge.professional">Professional</span>
+            <h2 class="project-title" data-i18n="proj.invoice.t">AP Invoice Automation Platform</h2>
+            <ul class="project-tags">
+              <li>Node.js</li><li>Express</li><li>MongoDB</li><li>React</li><li>Node-RED</li><li>Azure AD SSO</li><li>Docker</li>
+            </ul>
+            <p class="project-summary" data-i18n="proj.invoice.s">An accounts-payable platform that ingests vendor invoices, pulls the
+              matching purchase orders from the ERP, runs a multi-tier matching engine, flags discrepancies,
+              and lets AP staff review and post vouchers straight from a dashboard.</p>
+            <div class="project-details" id="details-invoice"><div data-i18n-html="details.invoice">
+              <p>Real vendor invoices are messy. The interesting work was teaching the system to read them the
+                way a human in AP would, then reconcile every line back to the purchase order down to the penny
+                before anything gets posted.</p>
+              <p class="detail-sub">Matching engine</p>
+              <ul>
+                <li>A low-code intake pipeline (Node-RED) normalizes incoming invoices and fetches the related
+                  POs before matching begins.</li>
+                <li>Three-pass line pre-processing: split merged invoice lines, rewrite vendor part numbers to
+                  the canonical ERP item IDs when the math closes, then fold surcharges and setup fees into the
+                  right product lines.</li>
+                <li>Unit-of-measure aware comparison that skips quantity and unit-price checks for non-each
+                  units (length, weight) and judges by extended amount, which is how vendors actually bill.</li>
+                <li>Several posting paths depending on match status (clean match, variance with line detail,
+                  partial match, freight and service by amount), all built around the ERP needing penny-exact
+                  totals.</li>
+                <li>Configurable per-vendor tolerance bands so expected variances don't get falsely flagged.</li>
+              </ul>
+              <p class="detail-sub">Dashboard</p>
+              <ul>
+                <li>KPI cards, trend sparklines, clickable aging buckets, vendor breakdowns, and payment-lag
+                  tracking, with week-over-week, month-over-month, and year-over-year comparisons and CSV export.</li>
+              </ul>
+              <p class="detail-sub">Stack</p>
+              <p class="detail-stack">Node.js + Express REST API, MongoDB, React dashboard, Microsoft SSO via
+                Azure AD, three-container Docker deployment (API, frontend/Nginx, database).</p>
+            </div></div>
+            <div class="project-actions">
+              <button class="btn outline" data-toggle="#details-invoice" aria-expanded="false" data-i18n="btn.readmore">Read more</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Field survey mobile app -->
+        <article class="project-card reveal" data-delay="2">
+          <div class="project-media project-media--icon"><span class="glyph" aria-hidden="true">📱</span></div>
+          <div class="project-body">
+            <span class="project-badge" data-i18n="badge.professional">Professional</span>
+            <h2 class="project-title" data-i18n="proj.mobile.t">Field Survey Mobile App</h2>
+            <ul class="project-tags">
+              <li>React Native</li><li>Expo</li><li>TypeScript</li><li>SQLite</li><li>Offline-first</li>
+            </ul>
+            <p class="project-summary" data-i18n="proj.mobile.s">A cross-platform iOS and Android app for field technicians to survey
+              equipment on site. Photograph the machine, drop numbered pins on each component, fill a guided
+              spec form per pin, save offline, and sync when you're back in range.</p>
+            <div class="project-details" id="details-mobile"><div data-i18n-html="details.mobile">
+              <p>Technicians work in places with no signal, so the whole app had to keep working with zero
+                connectivity and then sync cleanly later, even if two people surveyed the same machine. That
+                sync and conflict story was the real engineering challenge.</p>
+              <p class="detail-sub">Offline + sync</p>
+              <ul>
+                <li>Offline-first by design: a local SQLite database is the single source of truth, so nothing
+                  depends on a live connection.</li>
+                <li>Write-through outbox pattern queues every change keyed by a client-generated UUID, so syncs
+                  are idempotent and nothing gets lost or applied twice.</li>
+                <li>Multi-device conflict resolution with field-level merge: only fields two devices set
+                  differently need a human choice, everything else auto-merges and re-pushes so the winning
+                  value is definitive.</li>
+                <li>Append-only schema migration system (15+ migrations) so the on-device database upgrades
+                  cleanly across app versions.</li>
+              </ul>
+              <p class="detail-sub">Capture tools</p>
+              <ul>
+                <li>Custom annotation screen with pinch-zoom on the photo and independent resize of each pin.</li>
+                <li>A 2D component diagram where techs tap to place and drag features with real dimensions, all
+                  serialized to JSON and synced end to end.</li>
+                <li>Built with pluggable seams for transport, auth, and shape definitions so real
+                  implementations drop in without reworking call sites.</li>
+              </ul>
+              <p class="detail-sub">Stack</p>
+              <p class="detail-stack">React Native + Expo, TypeScript, on-device SQLite, EAS cloud builds.</p>
+            </div></div>
+            <div class="project-actions">
+              <button class="btn outline" data-toggle="#details-mobile" aria-expanded="false" data-i18n="btn.readmore">Read more</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- AI survey digitization -->
+        <article class="project-card reveal" data-delay="3">
+          <div class="project-media project-media--icon"><span class="glyph" aria-hidden="true">🤖</span></div>
+          <div class="project-body">
+            <span class="project-badge" data-i18n="badge.professional">Professional</span>
+            <h2 class="project-title" data-i18n="proj.ocr.t">AI Survey Digitization</h2>
+            <ul class="project-tags">
+              <li>Node.js</li><li>Express</li><li>React</li><li>Vision LLMs</li><li>MongoDB</li><li>Docker</li>
+            </ul>
+            <p class="project-summary" data-i18n="proj.ocr.s">A full-stack web app that turns handwritten field-survey forms into
+              structured, searchable data using vision-capable LLMs, then scores the results against an ERP
+              parts catalog to suggest matches. It also doubles as the sync backend for the mobile app above.</p>
+            <div class="project-details" id="details-ocr"><div data-i18n-html="details.ocr">
+              <p>The input is handwriting on paper, which no two people fill out the same way. The goal was to
+                pull clean, structured specs out of that and line them up against real catalog parts, with a
+                human reviewing before anything is trusted.</p>
+              <p class="detail-sub">OCR + matching</p>
+              <ul>
+                <li>Dual-provider OCR engine: two vision models run behind one shared prompt and identical JSON
+                  schema, and a compare endpoint runs both in parallel for side-by-side accuracy benchmarking
+                  and cost control.</li>
+                <li>Weighted-score matching engine ranks catalog parts against the extracted specs on a points
+                  system (exact ID, dimensions with millimeter tolerances, wattage, type, voltage, termination)
+                  so the best candidates surface first.</li>
+                <li>Server-side PDF splitting breaks multi-page uploads into single pages before OCR to keep
+                  batches within model limits.</li>
+                <li>Handles survey shorthand like "same as #N" by resolving those cross-references during
+                  extraction.</li>
+                <li>Catalog auto-imports from a spreadsheet on first startup, so there's zero manual setup.</li>
+              </ul>
+              <p class="detail-sub">Stack</p>
+              <p class="detail-stack">Node.js + Express server, React review UI, two vision LLM providers behind
+                one interface, MongoDB, Docker + Nginx. Also exposes the REST sync endpoints that back the
+                mobile app.</p>
+            </div></div>
+            <div class="project-actions">
+              <button class="btn outline" data-toggle="#details-ocr" aria-expanded="false" data-i18n="btn.readmore">Read more</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== PERSONAL ===================== -->
+    <section id="panel-personal" class="tabpanel" role="tabpanel" aria-labelledby="tab-personal" hidden>
+      <p class="panel-note" data-i18n="panel.personal.note">Things I build for fun and to learn. Games, tools, and passion projects.</p>
 
       <div class="project-rail">
         <!-- Multiplayer Blackjack -->
-        <article class="project-card" id="proj-blackjack">
-          <div class="project-body">
-            <h2 class="project-title">Multiplayer Blackjack</h2>
-            <p class="project-tags">Node.js · WebSockets · Game Logic · DB (High Scores)</p>
-            <p class="project-summary">Head-to-head blackjack built nearly from scratch: real-time play for two users,
-              custom shoe/shuffle and payout rules, and persistent high scores.</p>
-            <div class="project-details" id="details-blackjack">
-              <p>I implemented the game engine (deck, dealer AI, hand evaluation), real-time messaging using WebSockets,
-                and a simple auth/high-score store. The focus was correctness of blackjack rules  and deterministic tests around edge cases.</p>
-            </div>
-            <div class="project-actions">
-              <button class="btn" data-toggle="#details-blackjack">Read more</button>
-              <a class="btn outline" href="https://github.com/BboyEZE/multiplayer-blackjack-game">Github</a>
-            </div>
-            
-          </div>
+        <article class="project-card reveal">
           <figure class="project-media">
-            <img src="img/blackjack_game_ss.png" alt="Blackjack UI mock with cards and table"
-              onerror="this.src='img/projects/placeholder.jpg'" />
+            <img src="img/blackjack_game_ss.png" alt="Blackjack UI with cards and table"
+              onerror="this.style.display='none'; this.parentElement.classList.add('project-media--icon'); this.parentElement.setAttribute('data-glyph','🃏');" />
           </figure>
+          <div class="project-body">
+            <span class="project-badge" data-i18n="badge.personal">Personal</span>
+            <h2 class="project-title" data-i18n="proj.blackjack.t">Multiplayer Blackjack</h2>
+            <ul class="project-tags">
+              <li>Node.js</li><li>WebSockets</li><li>Game Logic</li><li>Database</li>
+            </ul>
+            <p class="project-summary" data-i18n="proj.blackjack.s">Head-to-head blackjack built nearly from scratch: real-time play for two
+              users, custom shoe/shuffle and payout rules, and persistent high scores.</p>
+            <div class="project-details" id="details-blackjack"><div data-i18n-html="details.blackjack">
+              <p>Implemented the game engine (deck, dealer AI, hand evaluation), real-time messaging over
+                WebSockets, and a simple auth/high-score store. The focus was correctness of blackjack rules and
+                deterministic tests around edge cases.</p>
+            </div></div>
+            <div class="project-actions">
+              <button class="btn outline" data-toggle="#details-blackjack" aria-expanded="false" data-i18n="btn.readmore">Read more</button>
+              <a class="btn" href="https://github.com/BboyEZE/multiplayer-blackjack-game">GitHub</a>
+            </div>
+          </div>
         </article>
-
 
         <!-- Breakdancing Event Webapp -->
-        <article class="project-card" id="proj-bboy">
-          <div class="project-body">
-            <h2 class="project-title">Breakdancing Event Webapp</h2>
-            <p class="project-tags">Python · SQL · Bracket Gen · Round Robin · Scoring</p>
-            <p class="project-summary">Tool for event hosts, built as a passion project to give back to the breakdancing community by making battles smoother to organize. </p>
-            <div class="project-details" id="details-bboy">
-              <p>I designed the relational schema (crews, battles, rounds, judge scores) and implemented algorithms to
-                seed top crews, balance groups, resolve ties, and compute advancement. Queries are optimized for simple
-                organizer dashboards.</p>
-            </div>
-            <div class="project-actions">
-              <button class="btn" data-toggle="#details-bboy">Read more</button>
-               <span class="btn disabled" aria-disabled="true">In Progress</span>
-            </div>
-
-          </div>
+        <article class="project-card reveal" data-delay="1">
           <figure class="project-media">
             <img src="img/nike_freeze.png" alt="Bracket and scoreboard preview for a breaking battle"
-              onerror="this.src='img/projects/placeholder.jpg'" />
+              onerror="this.style.display='none'; this.parentElement.classList.add('project-media--icon'); this.parentElement.setAttribute('data-glyph','🎤');" />
           </figure>
+          <div class="project-body">
+            <span class="project-badge" data-i18n="badge.personal">Personal</span>
+            <h2 class="project-title" data-i18n="proj.bboy.t">Breakdancing Event Webapp</h2>
+            <ul class="project-tags">
+              <li>Python</li><li>SQL</li><li>Bracket Gen</li><li>Scoring</li>
+            </ul>
+            <p class="project-summary" data-i18n="proj.bboy.s">A tool for event hosts, built as a passion project to give back to the
+              breakdancing community by making battles smoother to organize.</p>
+            <div class="project-details" id="details-bboy"><div data-i18n-html="details.bboy">
+              <p>Designed the relational schema (crews, battles, rounds, judge scores) and implemented algorithms
+                to seed top crews, balance groups, resolve ties, and compute advancement. Queries are optimized
+                for simple organizer dashboards.</p>
+            </div></div>
+            <div class="project-actions">
+              <button class="btn outline" data-toggle="#details-bboy" aria-expanded="false" data-i18n="btn.readmore">Read more</button>
+              <span class="btn disabled" aria-disabled="true" data-i18n="btn.inprogress">In Progress</span>
+            </div>
+          </div>
         </article>
-
 
         <!-- Farming Simulator -->
-        <article class="project-card" id="proj-farm">
-          <div class="project-body">
-            <h2 class="project-title">Farming Simulator</h2>
-            <p class="project-tags">OOP · Systems Design · Balancing</p>
-            <p class="project-summary">A React-built farming game about crops, community, and choices that shape your farm.</p>
-            <div class="project-details" id="details-farm">
-              <p>Built React components for UI interactions and implemented the dynamic weather system. Focused on modeling weather effects on crops and tuning event timing so gameplay felt balanced and immersive.</p>
-            </div>
-            <div class="project-actions">
-              <button class="btn" data-toggle="#details-farm">Read more</button>
-              <a class="btn outline" href="https://github.com/shane1595042264/eco-sprout">Github</Link></a>
-            </div>
-            
-          </div>
+        <article class="project-card reveal" data-delay="2">
           <figure class="project-media">
             <img src="img/EcoSprout.png" alt="Top-down farm scene with plots and barn"
-              onerror="this.src='img/projects/placeholder.jpg'" />
+              onerror="this.style.display='none'; this.parentElement.classList.add('project-media--icon'); this.parentElement.setAttribute('data-glyph','🌱');" />
           </figure>
+          <div class="project-body">
+            <span class="project-badge" data-i18n="badge.personal">Personal</span>
+            <h2 class="project-title" data-i18n="proj.farm.t">Farming Simulator</h2>
+            <ul class="project-tags">
+              <li>React</li><li>OOP</li><li>Systems Design</li><li>Balancing</li>
+            </ul>
+            <p class="project-summary" data-i18n="proj.farm.s">A React-built farming game about crops, community, and choices that shape
+              your farm.</p>
+            <div class="project-details" id="details-farm"><div data-i18n-html="details.farm">
+              <p>Built React components for UI interactions and implemented the dynamic weather system. Focused
+                on modeling weather effects on crops and tuning event timing so gameplay felt balanced and
+                immersive.</p>
+            </div></div>
+            <div class="project-actions">
+              <button class="btn outline" data-toggle="#details-farm" aria-expanded="false" data-i18n="btn.readmore">Read more</button>
+              <a class="btn" href="https://github.com/shane1595042264/eco-sprout">GitHub</a>
+            </div>
+          </div>
         </article>
       </div>
-    </main>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small><span id="year"></span> Ian Andler Pascual · <a href="index.html" data-i18n="footer.home">Home</a></small>
+    </div>
+  </footer>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <small><span id="year"></span> Ian Andler Pascual · <a href="index.html">Home</a></small>
-      </div>
-    </footer>
-
-
-    <script>
-      // Year stamp
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-    <script src="scripts/site.js" defer></script>
-  </body>
+  <script src="scripts/i18n.js" defer></script>
+  <script src="scripts/site.js" defer></script>
+</body>
 
 </html>

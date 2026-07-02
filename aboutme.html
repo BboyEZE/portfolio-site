@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Ian Andler Pascual</title>
+  <meta name="description" content="About Ian Andler Pascual. A few things I'm into outside of code." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -16,102 +17,105 @@
         <span class="name">Ian Andler Pascual</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="aboutme.html" class="active">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="aboutme.html" class="active" data-i18n="nav.about">About</a>
+        <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <button type="button" class="lang-toggle" aria-label="日本語に切り替え">日本語</button>
       </nav>
     </div>
   </header>
 
   <main class="container about-section">
-    <h1>About Me</h1>
-    <p class="about-muted">A few things I’m into outside of code.</p>
+    <div class="section-head reveal">
+      <h1 data-i18n="about.h1">About Me</h1>
+      <p class="about-muted" data-i18n="about.subtitle">A few things I'm into outside of code.</p>
+    </div>
 
     <!-- Quick Facts -->
     <section id="quick-facts" aria-labelledby="facts-title">
-      <h2 id="facts-title">Quick Facts</h2>
+      <h2 id="facts-title" class="reveal" data-i18n="about.facts.title">Quick Facts</h2>
       <div class="about-facts">
-        <div class="about-fact"><strong>Hometown:</strong> Lombard, Illinois</div>
-        <div class="about-fact"><strong>Movement:</strong> Rock climbing & breakdancing, Bball, and more</div>
-        <div class="about-fact"><strong>Games:</strong> Deadlock</div>
-        <div class="about-fact"><strong>Other joys:</strong> Travel, good food, and exploring new places</div>
+        <div class="about-fact reveal" data-i18n-html="fact.hometown"><strong>Hometown:</strong> Lombard, Illinois</div>
+        <div class="about-fact reveal" data-delay="1" data-i18n-html="fact.movement"><strong>Movement:</strong> Rock climbing &amp; breakdancing, basketball, and more</div>
+        <div class="about-fact reveal" data-delay="2" data-i18n-html="fact.games"><strong>Games:</strong> Deadlock</div>
+        <div class="about-fact reveal" data-delay="3" data-i18n-html="fact.joys"><strong>Other joys:</strong> Travel, good food, and exploring new places</div>
       </div>
     </section>
 
     <!-- Hobbies -->
     <section id="hobbies" aria-labelledby="hobbies-title">
-      <h2 id="hobbies-title">Hobbies</h2>
-      <p class="about-muted">Things I enjoy outside of school, work, and coding projects</p>
+      <h2 id="hobbies-title" class="reveal" data-i18n="about.hobbies.title">Hobbies</h2>
+      <p class="about-muted reveal" data-i18n="about.hobbies.sub">Things I enjoy outside of school, work, and coding projects.</p>
 
       <div class="about-grid">
         <!-- Japanese learning -->
-        <article class="about-card">
+        <article class="about-card reveal">
           <figure>
             <img src="img/aboutme/calligraphy.jpg" alt="Notebook with Japanese characters"
               onerror="this.src='img/projects/placeholder.jpg'">
           </figure>
           <div class="body">
-            <h3>Japanese Learning</h3>
-            <p>Daily reading and advanced grammar practice. Signed up for JLPT N2 test in winter 2025</p>
+            <h3 data-i18n="hobby.jp.t">Japanese Learning</h3>
+            <p data-i18n="hobby.jp.d">Daily reading and advanced grammar practice. Signed up for the JLPT N2 test in winter 2025.</p>
           </div>
         </article>
 
         <!-- Rock climbing -->
-        <article class="about-card">
+        <article class="about-card reveal" data-delay="1">
           <figure>
             <img src="img/hobbies/climbing.jpg" alt="Bouldering wall" onerror="this.src='img/aboutme/climbing_pic.jpg'">
           </figure>
           <div class="body">
-            <h3>Rock Climbing</h3>
-            <p>Mostly bouldering. Problem solving on the wall keeps the mind fresh. Love the community aspect and meeting new people.</p>
+            <h3 data-i18n="hobby.climb.t">Rock Climbing</h3>
+            <p data-i18n="hobby.climb.d">Mostly bouldering. Problem solving on the wall keeps the mind fresh. Love the community aspect and meeting new people.</p>
           </div>
         </article>
 
         <!-- Breakdancing -->
-        <article class="about-card">
+        <article class="about-card reveal">
           <figure>
             <img src="img/aboutme/windmills.jpg" alt="Breakdancing freeze"
               onerror="this.src='img/projects/placeholder.jpg'">
           </figure>
           <div class="body">
-            <h3>Breakdancing</h3>
-            <p>Amature, have not battled since 2018. Creative outlet that I am very pationate about.</p>
+            <h3 data-i18n="hobby.break.t">Breakdancing</h3>
+            <p data-i18n="hobby.break.d">Amateur, haven't battled since 2018. Creative outlet that I'm really passionate about.</p>
           </div>
         </article>
 
         <!-- Basketball -->
-        <article class="about-card">
+        <article class="about-card reveal" data-delay="1">
           <figure>
             <img src="img/aboutme/hoops.png" alt="Outdoor basketball hoop"
               onerror="this.src='img/projects/placeholder.jpg'">
           </figure>
           <div class="body">
-            <h3>Basketball</h3>
-            <p>Shooting around helps for clearing my head and thinking through stuff. Always down to play games of 5 on 5</p>
+            <h3 data-i18n="hobby.bball.t">Basketball</h3>
+            <p data-i18n="hobby.bball.d">Shooting around helps for clearing my head and thinking through stuff. Always down to play games of 5 on 5.</p>
           </div>
         </article>
 
         <!-- Video games -->
-        <article class="about-card">
+        <article class="about-card reveal">
           <figure>
             <img src="img/aboutme/game_collage.jpg" alt="Game controller on a desk"
               onerror="this.src='img/projects/placeholder.jpg'">
           </figure>
           <div class="body">
-            <h3>Video Games</h3>
-            <p>Competitve shooters have been my bread and butter. Mainly just a way to spend time with long distance friends</p>
+            <h3 data-i18n="hobby.games.t">Video Games</h3>
+            <p data-i18n="hobby.games.d">Competitive shooters have been my bread and butter. Mainly a way to spend time with long-distance friends.</p>
           </div>
         </article>
 
         <!-- Travel/Hiking -->
-        <article class="about-card">
+        <article class="about-card reveal" data-delay="1">
           <figure>
-            <img src="img/aboutme/mountain_view.JPG" alt="City street with food stalls"
+            <img src="img/aboutme/mountain_view.JPG" alt="Mountain view from a hike"
               onerror="this.src='img/projects/placeholder.jpg'">
           </figure>
           <div class="body">
-            <h3>Travel</h3>
-            <p>Exploring new places, and  hiking large mountains</p>
+            <h3 data-i18n="hobby.travel.t">Travel</h3>
+            <p data-i18n="hobby.travel.d">Exploring new places and hiking large mountains.</p>
           </div>
         </article>
       </div>
@@ -120,13 +124,12 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <small><span id="year"></span> Ian Andler Pascual · <a href="index.html">Home</a></small>
+      <small><span id="year"></span> Ian Andler Pascual · <a href="index.html" data-i18n="footer.home">Home</a></small>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="scripts/i18n.js" defer></script>
+  <script src="scripts/site.js" defer></script>
 </body>
 
 </html>
