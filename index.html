@@ -1,42 +1,65 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ian Andler Pascual</title>
+  <meta name="description" content="Ian Andler Pascual, developer building web apps, mobile apps, and automation. CS + Japanese." />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body class="home">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="img/headshop.jpeg" alt="Ian Andler Pascual headshot" class="avatar" />
+        <span class="name">Ian Andler Pascual</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="aboutme.html" data-i18n="nav.about">About</a>
+        <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <button type="button" class="lang-toggle" aria-label="日本語に切り替え">日本語</button>
+      </nav>
+    </div>
+  </header>
 
   <main class="container">
-    <div data-reveal>
-        <h1>Who is Ian?</h1>
+    <section class="hero hero--landing">
+      <div class="hero-copy reveal">
+        <h1 data-i18n-html="hero.h1">Who is <span class="grad">Ian</span>?</h1>
         <p class="type-line">
           <span id="typer"></span><span class="cursor" aria-hidden="true">|</span>
         </p>
-      </div>
-    <section class="hero hero--landing">
+        <p class="lead" data-i18n="hero.lead">I build web apps, mobile apps, and automation that people actually use.
+          Configurators, dashboards, offline-first field tools, and more.</p>
 
-      <div class="hero-media" data-reveal>
-        <img src="img/nicest_photo_of_recent.JPG" alt="The Man the Myth the Legend" class="hero-photo" />
-      </div>
-
-      <div class="hero-copy">
-
-        <div class="cta-cards">
-          <a class="cta" href="projects.html" aria-label="View projects" data-reveal>
-            <h3>Projects →</h3>
-            <p>Breakdance app, multiplayer blackjack, data work, and more.</p>
-          </a>
-          <a class="cta" href="aboutme.html" aria-label="Learn about me" data-reveal>
-            <h3>About Me →</h3>
-            <p>CS + Japanese, teamwork, problem solving, and growth.</p>
-          </a>
-          <a class="cta" href="contact.html" aria-label="Contact Ian" data-reveal>
-            <h3>Contact →</h3>
-            <p>Roles, collabs, or just say hi.</p>
-          </a>
+        <div class="btn-row">
+          <a class="btn" href="projects.html" data-i18n="btn.viewprojects">View projects</a>
+          <a class="btn outline" href="contact.html" data-i18n="btn.sayhi">Say hi</a>
         </div>
+      </div>
+
+      <div class="hero-media reveal" data-delay="1">
+        <img src="img/nicest_photo_of_recent.JPG" alt="Portrait of Ian Andler Pascual" class="hero-photo" />
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 8px;">
+      <div class="cta-cards">
+        <a class="cta reveal" href="projects.html" aria-label="View projects">
+          <h3 data-i18n="cta.projects.h">Projects →</h3>
+          <p data-i18n="cta.projects.p">Professional work plus personal builds. Configurators, automation, games, and more.</p>
+        </a>
+        <a class="cta reveal" data-delay="1" href="aboutme.html" aria-label="Learn about me">
+          <h3 data-i18n="cta.about.h">About Me →</h3>
+          <p data-i18n="cta.about.p">CS + Japanese, teamwork, problem solving, and growth.</p>
+        </a>
+        <a class="cta reveal" data-delay="2" href="contact.html" aria-label="Contact Ian">
+          <h3 data-i18n="cta.contact.h">Contact →</h3>
+          <p data-i18n="cta.contact.p">Roles, collabs, or just say hi.</p>
+        </a>
       </div>
     </section>
   </main>
@@ -47,8 +70,9 @@
     </div>
   </footer>
 
+  <script src="scripts/i18n.js" defer></script>
   <script src="scripts/typewriter.js" defer></script>
   <script src="scripts/site.js" defer></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
+
 </html>

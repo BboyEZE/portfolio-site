@@ -1,11 +1,14 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Ian Andler Pascual</title>
+  <meta name="description" content="Get in touch with Ian Andler Pascual." />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -14,29 +17,50 @@
         <span class="name">Ian Andler Pascual</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="aboutme.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="aboutme.html" data-i18n="nav.about">About</a>
+        <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
+        <button type="button" class="lang-toggle" aria-label="日本語に切り替え">日本語</button>
       </nav>
     </div>
   </header>
 
   <main class="container section">
-    <h1 data-reveal>Contact</h1>
-    <p>You can reach me directly at:</p>
-    <ul class="contact-list" data-reveal>
-      <li>Email: <a href="mailto:andlerpascualian@gmail.com">andlerpascualian@gmail.com</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/ian-andler-pascual-5239b5290/" target="_blank" rel="noopener">linkedin.com/in/ian-andler-pascual</a></li>
+    <div class="section-head reveal">
+      <h1 data-i18n="contact.h1">Contact</h1>
+      <p class="lead" data-i18n="contact.lead">Roles, collabs, or just to say hi. Reach me directly:</p>
+    </div>
+
+    <ul class="contact-list">
+      <li class="reveal">
+        <a href="mailto:andlerpascualian@gmail.com">
+          <span class="ico" aria-hidden="true">✉️</span>
+          <span class="meta">
+            <span>andlerpascualian@gmail.com</span>
+            <small data-i18n="contact.email.label">Email</small>
+          </span>
+        </a>
+      </li>
+      <li class="reveal" data-delay="1">
+        <a href="https://www.linkedin.com/in/ian-andler-pascual-5239b5290/" target="_blank" rel="noopener">
+          <span class="ico" aria-hidden="true">in</span>
+          <span class="meta">
+            <span>linkedin.com/in/ian-andler-pascual</span>
+            <small>LinkedIn</small>
+          </span>
+        </a>
+      </li>
     </ul>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <small><span id="year"></span> Ian Andler Pascual · <a href="index.html">Home</a></small>
+      <small><span id="year"></span> Ian Andler Pascual · <a href="index.html" data-i18n="footer.home">Home</a></small>
     </div>
   </footer>
 
+  <script src="scripts/i18n.js" defer></script>
   <script src="scripts/site.js" defer></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
+
 </html>
